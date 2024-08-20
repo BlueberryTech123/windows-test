@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+    <title>Roogle</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <style>
+        .grey-background {
+            background: #eee;
+        }
+        .item img {
+            width: 100%;
+        }
+    </style>
+    <script>
+        function purchase(element) {
+            element.disabled = true;
+            element.innerHTML = "<b>Purchased!</b>"
+        }
+    </script>
+</head>
+<body class="m-0 p-0">
+    <div class="w-100 p-0">
+        <div class="row w-100 p-3 px-5">
+            <div class="col-3">
+                <p style="font-size: 70px; font-weight: bold; pointer-events: none; letter-spacing: -17px;">
+                    <span style="opacity: 0.5; display: inline-block; color: #be1212; transform: translateY(10px);">r</span>
+                    <span style="display: inline-block; color: #0c4d9c;">e</span>
+                    <span style="display: inline-block; color: #f7b612; transform: translateY(-10px);">b</span>
+                    <span style="opacity: 0.5; display: inline-block; color: #0c4d9c; transform: translateY(10px);">a</span>
+                    <span style="display: inline-block; color: #2cf62f;">Y</span>
+                </p>
+                <p>Buy it. Sell it. Love it.</p>
+                <p style="background: #ffae00;"><b>Categories</b></p>
+                <ul>
+                    <li><a href="#automotives">Automotives [NEW!] (3)</a></li>
+                    <li><a href="#electronics">Electronics (3)</a></li>
+                    <li><a href="#furniture">Furniture (0)</a></li>
+                    <li><a href="#antiques">Antiques (0)</a></li>
+                    <li><a href="#horse-people">Horse People (1)</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <input placeholder="Search...">
+                <button>Go?</button> Site is in [BETA]! Expect bugs.
+                <hr>
+                <p style="background: #1eff00;"><b>Shop!</b></p>
+
+                <b>Automotives [NEW!]</b><hr>
+                <div class="row" id="automotives">
+                    <div class="col-3 item">
+                        <img src="./rebay/mildlydamagedcar.png"><hr>
+                        Lightly used veihcle<br><button onclick="purchase(this)">Purchase [$5999.99]</button>
+                    </div>
+                    <div class="col-3 item">
+                        <img src="./rebay/lamborginny.png"><hr>
+                        Lamborg inny (legit)<br><button onclick="purchase(this)">Purchase [$1039.99]</button>
+                    </div>
+                    <div class="col-3 item">
+                        <img src="./rebay/mildlydamagedcarburning.png"><hr>
+                        SUV (barely used)<br><button onclick="purchase(this)">Purchase [$4039.99]</button>
+                    </div>
+                </div>
+
+                <br><hr><b>Electronics</b><hr>
+                <div class="row" id="electronics">
+                    <div class="col-3 item">
+                        <img src="./rebay/thinkpad.png"><hr>
+                        Thinkpad<br><button onclick="purchase(this)">Purchase [$189.99]</button>
+                    </div>
+                    <div class="col-3 item">
+                        <img src="./rebay/brokenlaptop.png"><hr>
+                        Working laptop! cheap!<br><button onclick="purchase(this)">Purchase [$0.01]</button>
+                    </div>
+                    <div class="col-3 item">
+                        <img src="./rebay/iphone.png"><hr>
+                        iPhone 15 pro<br><button onclick="purchase(this)">Purchase [$599.99]</button>
+                    </div>
+                </div>
+
+
+                <br><hr><b>Horse People</b><hr>
+                <div class="row" id="horse-people">
+                    <div class="col-3 item">
+                        <img src="./rebay/pablo.png"><hr>
+                        Pablo<br><button onclick="purchase(this)">Purchase [$10.99]</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
