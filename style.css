@@ -1,4 +1,5 @@
 @import url("https://www.w3schools.com/w3css/4/w3.css");
+@import url("https://unpkg.com/fixedsys-css/css/fixedsys.css");
 
 :root {
     --default-font-size: 12px;
@@ -13,7 +14,8 @@
     src: url();
 } */
 .wallpaper {
-    background-image: url("https://ia802308.us.archive.org/13/items/windows-wallpaper/windows%20wallpaper.jpg");
+    /* background-image: url("https://ia802308.us.archive.org/13/items/windows-wallpaper/windows%20wallpaper.jpg"); */
+    background: #497d85;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -115,6 +117,10 @@ button:active {
     margin-top: -5px;
     border-radius: 5px;
 }
+.close-button {
+    background: linear-gradient(#d55656 0%, #9a2d2d 47.5%, #862929 50%, #d55656 100%) !important;
+    border-color: #9a2d2d !important;
+}
 .debug-background {
     background-color: #f00;
 }
@@ -125,6 +131,7 @@ hr {
     background: var(--window-active-gradient);
     color: #fff;
     border-top: var(--window-active-border);
+    outline: var(--window-active-outline);
     height: 35px;
     position: fixed;
     width: 100vw;
@@ -135,6 +142,7 @@ hr {
 #start {
     background: linear-gradient(#56d559 0%, #2d9a2f 47.5%, #316a20 50%, #164214 100%);
     border: none !important;
+    border-right: 2px solid #2d9a2f !important;
     font-family: Tahoma !important;
     color: #fff;
     font-weight: bold;
@@ -156,6 +164,7 @@ hr {
     width: calc(var(--default-font-size) * 2);
     margin: 5px;
     border-radius: 5px;
+    overflow: none;
 
     animation: task-open 0.1s ease forwards;
 }
@@ -172,10 +181,11 @@ hr {
     color: #fff;
     border: none;
     width: 80px;
-    height: 100px;
+    height: 95px;
     margin: 5px;
     text-align: center;
     line-height: 12px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 .desktop-icon:hover {
     border: 2px dotted rgba(200, 200, 200, 0.5);
@@ -184,7 +194,27 @@ hr {
     border: 2px dotted rgba(200, 200, 200, 0.9) !important;
 }
 .desktop-icon img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-bottom: 10px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+}
+#desktop {
+    padding: 10px;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+#terminal-content {
+    background: #000;
+    color: #fff;
+    font-family: "Fixedsys" !important;
+    padding: 2px;
+}
+#terminal-content input {
+    background: none;
+    border: none;
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
 }

@@ -1,3 +1,5 @@
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 let windows = {}
 let windowsCount = {}
 
@@ -105,9 +107,9 @@ function Window(id, name = "Window") {
     return OBJECT;
 }
 
-function ErrorMessage(message, iconId) {
+function ErrorMessage(message, height = 155, iconId) {
     const WINDOW = new Window("error", "Alert");
-    WINDOW.setSize(450, 155);
+    WINDOW.setSize(450, height);
     WINDOW.CONTENT.innerHTML = `
         <div class="p-3 row">
             <div class="col-2">
@@ -139,7 +141,7 @@ function WebExplorer() {
                 Address:
             </div>
             <div class="col">
-                <input type="text" class="w-100" placeholder="Enter address here..." id="url-bar">
+                <input type="text" class="w-100" placeholder="Enter address here..." id="url-bar" autocomplete="off">
             </div>
             <div class="col-1">
                 <button class="w-100" type="submit">Go</button>
@@ -200,7 +202,54 @@ function Notepad() {
     WINDOW.CONTENT.querySelector("#save-document").addEventListener("click", () => {new ErrorMessage("Word was unable to save your document because you stink.")});
     WINDOW.CONTENT.querySelector("#font").addEventListener("click", () => {new ErrorMessage("Unable to load fonts")});
     WINDOW.CONTENT.querySelectorAll(".unable-format").forEach(element => {
-        element.addEventListener("click", () => {new ErrorMessage("Formatting is unavailable in Word VG Free Edition.")});
+        element.addEventListener("click", async function () {
+            for (let i = 0; i < 3 + Math.random() * 4; i++) {
+                new ErrorMessage(
+                    `Word has made ${Math.ceil(Math.random() * 50000)} illegal operations and is unable to complete your request`, 185);
+                await delay(100);
+            }
+        });
     });
+    return WINDOW;
+}
+
+function Terminal() {
+    const WINDOW = new Window("terminal", "Command Prompt");
+    WINDOW.setSize(700, 560);
+    WINDOW.CONTENT.innerHTML = `
+        <div style="width: 100%; height: 100%; resize: none; height: 100%;" id="terminal-content">
+        Micosoft Windows VG [Version 10.0.1342388.859]<br>
+        (c) Micosoft Corporation. All rights reserved.<br><br>
+        <span id="output"></span>
+        >&nbsp;
+        <form style="display: inline-block;" class="w-75">
+            <input id="terminal-input" placeholder="Click to start typing..." class="w-100" autocomplete="off">
+        </form>
+        </div>
+    `;
+    const input = WINDOW.CONTENT.querySelector("input");
+    const output = WINDOW.CONTENT.querySelector("#output");
+
+    WINDOW.CONTENT.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const value = input.value;
+        output.innerText += `>  ${value}\n`;
+        input.value = "";
+
+        if (value == "netstat") {
+            output.innerText += "Viewing active connections...\n\n";
+            for (let i = 0; i < 5 + Math.random() * 5; i++) {
+                output.innerText += `126.0.0.1:${10000 + Math.ceil(Math.random() * 40000)} -> ESTABLISHED\n`;
+            }
+            output.innerText += "\n";
+        }
+        else if (value == "tree") {
+            output.innerText += `A tree has been ordered for delivery! [Order ID: 0x${10000 + Math.ceil(Math.random() * 80000)}]\n\n`;
+        }
+        else {
+            output.innerText += `Bad or invalid command. Did you mean 'wipesystem'?\n`;
+        }
+    })
+
     return WINDOW;
 }

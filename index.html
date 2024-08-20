@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="windows.js"></script>
-    <title>Document</title>
+    <title>Windows VG (Very Good) Edition</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -17,15 +17,27 @@
     <button onclick="new ErrorMessage('Windows preformed an illegal operation');">Generic</button><br>
     <button onclick="new Notepad()">Notepad</button> -->
 
-    <button class="desktop-icon" ondblclick="new WebExplorer();">
-        <img src="https://seeklogo.com/images/W/windows-xp-icon-logo-E8F84DD6F3-seeklogo.com.png"><br>
-        <span>Web Explorer</span>
-    </button><br>
+    <div id="desktop">
+        <button class="desktop-icon" ondblclick="new ErrorMessage('i havent implemented this chill');">
+            <img src="./icons/computer.png"><br>
+            <span>My Computer</span>
+        </button><br>
+    
+        <button class="desktop-icon" ondblclick="new WebExplorer();">
+            <img src="./icons/webexplorer.png"><br>
+            <span>Web Explorer</span>
+        </button><br>
+    
+        <button class="desktop-icon" ondblclick="new Notepad();">
+            <img src="./icons/word.png"><br>
+            <span>Word VG Edition</span>
+        </button><br>
 
-    <button class="desktop-icon" ondblclick="new Notepad();">
-        <img src="https://seeklogo.com/images/W/windows-xp-icon-logo-E8F84DD6F3-seeklogo.com.png"><br>
-        <span>Word VG Edition</span>
-    </button><br>
+        <button class="desktop-icon" ondblclick="new Terminal();">
+            <img src="./icons/terminal.png"><br>
+            <span>Command Prompt</span>
+        </button><br>
+    </div>
 
     <div id="taskbar" class="row w-100 m-0 p-0">
         <div class="col-1 text-start" style="margin-left: -15px !important;">
