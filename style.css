@@ -176,6 +176,22 @@ hr {
         opacity: 1;
     }
 }
+
+.file-content {
+    background: none;
+    color: #000;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    width: 95%;
+    height: 17px;
+    margin: 2px;
+    line-height: 12px;
+    text-align: left;
+}
+.file-content i {
+    color: #666;
+    float: right;
+}
 .desktop-icon {
     background: none;
     color: #fff;
@@ -187,10 +203,10 @@ hr {
     line-height: 12px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
-.desktop-icon:hover {
+.desktop-icon:hover, .file-content:hover {
     border: 2px dotted rgba(200, 200, 200, 0.5);
 }
-.desktop-icon:active {
+.desktop-icon:active, .file-content:hover {
     border: 2px dotted rgba(200, 200, 200, 0.9) !important;
 }
 .desktop-icon img {

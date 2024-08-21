@@ -253,3 +253,74 @@ function Terminal() {
 
     return WINDOW;
 }
+
+function FileExplorer(initialPath) {
+    const WINDOW = new Window("file-explorer", "File Explorer");
+    WINDOW.setSize(850, 575);
+
+    WINDOW.CONTENT.innerHTML = `
+        <div class="container row w-100 p-1">
+            <div class="col" id="file-options">
+                Options:&nbsp;&nbsp;
+            </div>
+        </div>
+        <hr class="m-0">
+        <form class="container row p-1">
+            <div class="col-1">
+                Path:
+            </div>
+            <div class="col">
+                <input type="text" class="w-100" placeholder="You shouldn't see this text..." id="url-bar" autocomplete="off" disabled>
+            </div>
+            <div class="col-1">
+                <button class="w-100" type="submit" disabled>Go</button>
+            </div>
+        </form>
+        <hr class="m-0">
+        <div class="container" style="height: calc(100% - 18px * 2 - 1.6px * 2 - 35px); box-sizing: border-box;">
+            <div class="row h-100">
+                <div class="col-3 p-1" style="border-right: 2px groove #eee !important;">
+                    <a href="#" id="roogle-bookmark">Test 1</a>&nbsp;&nbsp;&nbsp;
+                    <a href="#" id="rebay-bookmark">Tes t2</a>&nbsp;&nbsp;&nbsp;
+                </div>
+                <div class="col p-1 h-100" style="background: #fff; overflow-y: scroll;" id="files">
+                </div>
+                <div class="col-3 p-3" style="border-left: 2px groove #eee !important;">
+                    <center>
+                        <img src="./icons/computer.png" style="width: 100px; height: 100px;">
+                        <br>
+                        <b style="font-size: 15px;">My Computer</b>
+                    </center>
+                    <hr>
+                    <p>This is your computer. Honestly, what did you think it was?</p>
+                </div>
+            </div>
+        </div>
+        <hr class="m-0">
+    `;
+    WINDOW.CONTENT.querySelector("#roogle-bookmark").addEventListener("click", () => { renderPage("roogle.wvg"); });
+    WINDOW.CONTENT.querySelector("#rebay-bookmark").addEventListener("click", () => { renderPage("rebay.wvg"); });
+
+    // WINDOW.CONTENT.querySelector("form").addEventListener("submit", (event) => {
+    //     const url = WINDOW.CONTENT.querySelector("#url-bar").value;
+    //     event.preventDefault();
+
+    //     if (!(url in urls)) {
+    //         renderPage("wexp://errpage");
+    //         return;
+    //     }
+
+    //     renderPage(url);
+    // })
+
+    const files = WINDOW.CONTENT.querySelector("#files");
+
+    function renderPage(path) {
+        for (let i = 0; i < 10; i++) {
+            files.innerHTML += `<button class="file-content"><span>${Math.ceil(Math.random() * 10000)}.exe</span><i>${Math.ceil(Math.random() * 30)} MB</i></button>`;
+        }
+        WINDOW.CONTENT.querySelector("#url-bar").value = path;
+    }
+    renderPage(initialPath);
+    return WINDOW;
+}
